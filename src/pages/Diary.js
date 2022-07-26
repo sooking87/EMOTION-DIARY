@@ -1,10 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DiaryStateContext } from "../App";
-import { getStringDate } from "../util/date";
 import { emotionList } from "../util/emotionList";
 import MyHeader from "../components/MyHeader";
 import MyButton from "../components/MyButton";
+
+const getStringDate = (date) => {
+  return date.toISOString().slice(0, 10);
+};
 
 const Diary = () => {
   const { id } = useParams();
@@ -30,6 +33,7 @@ const Diary = () => {
   if (!data) {
     return <div className="DiaryPage">로딩중입니다,,,</div>;
   } else {
+    const date = getStringDate(new Date(data.date));
     const curEmotionData = emotionList.find(
       (it) => parseInt(it.emotion_id) === parseInt(data.emotion)
     );

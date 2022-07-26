@@ -34,7 +34,7 @@ const filterOptionList = [
 const DiaryList = ({ diaryList }) => {
   const navigate = useNavigate();
   const [sortType, setSortType] = useState("latest");
-  const [filter, setfilter] = useState("all");
+  const [filter, setFilter] = useState("all");
 
   const getFilterCallBack = (item) => {
     if (filter === "good") {
@@ -73,7 +73,7 @@ const DiaryList = ({ diaryList }) => {
           ></ControlMenu>
           <ControlMenu
             value={filter}
-            onChange={setfilter}
+            onChange={setFilter}
             optionList={filterOptionList}
           ></ControlMenu>
         </div>

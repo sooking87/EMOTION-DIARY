@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 // COMPONENTS
 import MyHeader from "./../components/MyHeader";
 import MyButton from "./../components/MyButton";
@@ -10,7 +10,6 @@ const Home = () => {
 
   // 현재 월에 해당하는 일기만 필요하므로 useState 사용
   const [data, setData] = useState([]);
-
   const [curDate, setCurDate] = useState(new Date());
 
   const headText = `${curDate.getFullYear()}년 ${curDate.getMonth() + 1}월`;
@@ -38,9 +37,6 @@ const Home = () => {
     }
   }, [diaryList, curDate]);
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
   // 버튼 클릭 -> 월이 바뀔 수 있도록 하는 메서드
   const increaseMonth = () => {
     setCurDate(
