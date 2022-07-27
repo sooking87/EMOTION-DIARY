@@ -15,6 +15,12 @@ const Diary = () => {
   const navigate = useNavigate();
   const [data, setDate] = useState();
 
+  // 페이지 별 타이틀 수정하기
+  useEffect(() => {
+    const titleElem = document.getElementsByTagName('title')[0];
+    titleElem.innerHTML = `감정 일기장-${id}번 일기`
+  }, [])
+
   useEffect(() => {
     if (diaryList.length >= 1) {
       const targetDiary = diaryList.find(

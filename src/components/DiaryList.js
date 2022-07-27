@@ -1,11 +1,11 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MyButton from "./MyButton";
 import DiaryItem from "./DiaryItem";
 // value Prop: 어떤 종류의 select를 골랐는지
 // onChange Prop: select가 정의한 값이 바뀌었을 때 기능하는 함수
 // option Prop: select 태그 안에 들어있는 리스트
-const ControlMenu = ({ value, onChange, optionList }) => {
+const ControlMenu = React.memo(({ value, onChange, optionList }) => {
   return (
     <select
       className="ControlMenu"
@@ -19,7 +19,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
       ))}
     </select>
   );
-};
+});
 
 const sortOptionList = [
   { value: "latest", name: "최신순" },

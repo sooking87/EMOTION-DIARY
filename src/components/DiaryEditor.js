@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState, useRef, useContext, useEffect } from "react";
+import React, { useState, useRef, useContext, useEffect, useCallback } from "react";
 import MyHeader from "./MyHeader";
 import MyButton from "./MyButton";
 import EmotionItem from "./EmotionItem";
@@ -48,9 +48,9 @@ const DiaryEditor = ({ isEdit, originData }) => {
     }
   };
 
-  const handleClickRemote = (emotion) => {
+  const handleClickRemote = useCallback((emotion) => {
     setEmotion(emotion);
-  };
+  }, []);
 
   useEffect(() => {
     if (isEdit) {
