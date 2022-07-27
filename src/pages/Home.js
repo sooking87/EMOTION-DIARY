@@ -6,6 +6,11 @@ import DiaryList from "../components/DiaryList";
 import { DiaryStateContext } from "../App";
 
 const Home = () => {
+  // 페이지 별 타이틀 수정하기
+  useEffect(() => {
+    const titleElem = document.getElementsByTagName("title")[0];
+    titleElem.innerHTML = `감정 일기장`;
+  }, []);
   const diaryList = useContext(DiaryStateContext);
 
   // 현재 월에 해당하는 일기만 필요하므로 useState 사용
